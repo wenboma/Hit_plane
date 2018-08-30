@@ -14,9 +14,6 @@ from play_button import Play_button
 from scoreboard import Scoreboard
 from ship import Ship
 
-
-
-
 def run_game():
 
 	pygame.init()

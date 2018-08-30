@@ -1,0 +1,48 @@
+
+
+entrance : alien_invasion run_game()
+
+step:
+			1. creat setting ->  Setting()
+
+			2. creat alien -> creat_fleet(ai_setting,screen,aliens,ship)
+
+			3. creat dataManager -> Game_stats(ai_setting)
+
+			4. creat play button Play_button(ai_setting,screen,"Play")
+
+			5. creat score system Scoreboard(ai_setting,screen,stats)
+
+			6. check events {
+								1. q quit game
+								2. left/right ship move 
+								3. space creat bullet
+							}
+			7. update ship location
+
+			8. update bullet location
+
+			9. update bullet -> update_bullets()
+								{
+									1. move out of screen ,delete bullet
+									2. judge if hit with alien, 
+										hit action: update score,delete bullet and alien, if alien is all removed:clean bullet, increase level,create aliens
+								}
+			10. update alien -> update_aliens()
+								{
+									1. check alien touch screen bottom -> handle as hit action
+									2. check alien touch screen left/right edges -> change alien move direction
+									3. update alien location
+									4. check alien hit ship -> handle as hit action
+								}
+
+			11. update screen -> update_screen()
+								{
+									1. draw bullets
+									2. fill screen
+									3. draw ship
+									4. draw aliens -> aliens.draw(screen) -> alien.blitme()
+									5. show score
+									6. draw button
+								}
+
